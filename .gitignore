@@ -9,8 +9,10 @@ node_modules/
 out/
 build/
 
-# Environment
+# Environment (secrets live here — never commit)
 .env
+.env.local
+.env.*.local
 .env.*
 !.env.example
 

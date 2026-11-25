@@ -1,14 +1,452 @@
-.hero { position: relative; overflow: hidden; background: radial-gradient(circle at 75% 30%, #FFE6A6 0, transparent 45%), linear-gradient(180deg, var(--cream), var(--beige)); padding: 48px 0 96px; }
-.grid { display: grid; gap: 32px; align-items: center; }
-@media (min-width: 900px) { .grid { grid-template-columns: 1.1fr 1fr; } }
-.h1 { font-size: clamp(2.1rem, 8vw, 4rem); line-height: 1.25; font-weight: 700; }
-.h1 span { color: var(--orange); display: block; }
-.p { margin: 16px 0 28px; font-size: 1.1rem; max-width: 520px; }
-.btns { display: flex; flex-wrap: wrap; gap: 12px; }
-.art { position: relative; display: grid; place-items: center; min-height: 340px; }
-.sun { position: absolute; width: min(380px, 80vw); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, var(--gold), #f9a83a 70%, transparent 71%); opacity: .9; }
-.palm { position: relative; width: min(340px, 78vw); filter: drop-shadow(0 24px 30px rgba(84,43,29,.3)); }
-.drop { position: absolute; border-radius: 50%; background: var(--gold); opacity: .8; }
-.hill { position: absolute; left: -10%; right: -10%; bottom: -40px; height: 90px; background: var(--green); border-radius: 50% 50% 0 0; }
-.d1 { width: 16px; height: 16px; top: 18%; left: 10%; }
-.d2 { width: 10px; height: 10px; bottom: 22%; right: 8%; }
+/* FILE: src/components/home/Hero.module.css */
+/* Hero: a winter sunrise over dark gur. Text on the left, the product rises out of the sun on the right. */
+/* Breakpoints: tablet <= 990px, mobile <= 480px */
+
+.hero {
+  --ink: #2e1409;
+  --ember: #7a3612;
+  --sun: #f4c75e;
+  --milk: #fff3e0;
+  --soft: rgba(255, 243, 224, 0.76);
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 60px 0 128px;
+  color: var(--milk);
+  background:
+    radial-gradient(62% 82% at 76% 44%, var(--ember) 0%, rgba(122, 54, 18, 0) 72%),
+    linear-gradient(180deg, var(--ink) 0%, #3b1a0b 100%);
+}
+
+.hero :focus-visible {
+  outline-color: var(--sun);
+}
+
+.in {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
+  align-items: center;
+  gap: clamp(28px, 5vw, 72px);
+}
+
+/* ---------- text column ---------- */
+
+.copy {
+  text-align: left;
+}
+
+.h1 {
+  display: grid;
+  justify-items: start;
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.l1 {
+  font-size: clamp(1.35rem, 2.6vw, 2.1rem);
+  color: var(--sun);
+}
+
+.l2 {
+  margin-top: 0.02em;
+  font-size: clamp(3.9rem, 9.4vw, 7.4rem);
+  color: var(--milk);
+  text-shadow: 0 0.05em 0 rgba(0, 0, 0, 0.28);
+}
+
+.l3 {
+  margin-top: -0.04em;
+  font-size: clamp(2.5rem, 5.8vw, 4.5rem);
+  color: var(--orange);
+}
+
+.p {
+  max-width: 31em;
+  margin: 22px 0 28px;
+  font-size: 1.08rem;
+  line-height: 1.85;
+  color: var(--soft);
+}
+
+.btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.ghost {
+  background: transparent;
+  color: var(--milk);
+  border: 2px solid rgba(255, 243, 224, 0.55);
+}
+
+.ghost:hover {
+  background: rgba(255, 243, 224, 0.1);
+}
+
+.perks {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 0;
+  margin: 30px 0 0;
+  padding: 0;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--soft);
+}
+
+.perks li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 18px;
+}
+
+.perks li:first-child {
+  padding-left: 0;
+}
+
+.perks li + li {
+  border-left: 1px solid rgba(255, 243, 224, 0.22);
+}
+
+.perks svg {
+  flex: none;
+  color: var(--sun);
+}
+
+.deal {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 22px;
+  padding: 8px 16px;
+  border: 1.5px dashed var(--sun);
+  border-radius: 999px;
+  background: rgba(244, 199, 94, 0.1);
+  font-size: 0.95rem;
+  color: var(--milk);
+}
+
+.deal b,
+.deal svg {
+  color: var(--sun);
+}
+
+/* ---------- stage: sunrise + product ---------- */
+
+.stage {
+  position: relative;
+  width: min(100%, 520px);
+  justify-self: center;
+}
+
+.scene {
+  position: relative;
+  aspect-ratio: 1 / 1.02;
+}
+
+/* the sky stops at the horizon, so the lower part of the sun is hidden */
+.sky {
+  position: absolute;
+  inset: 0 0 20% 0;
+  display: grid;
+  place-items: end center;
+  /* cut only at the horizon (bottom); let the rings spread freely to the sides */
+  clip-path: inset(-40% -60% 0 -60%);
+}
+
+.sun {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  margin-bottom: -34%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 50% 36%,
+    #ffe7a8 0%,
+    #fbc25b 34%,
+    #f39a2e 62%,
+    #d9560f 100%
+  );
+  box-shadow: 0 0 90px 10px rgba(244, 165, 59, 0.35);
+}
+
+.sun::before,
+.sun::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid rgba(244, 199, 94, 0.3);
+}
+
+.sun::before {
+  inset: -9%;
+}
+
+.sun::after {
+  inset: -20%;
+  border-color: rgba(244, 199, 94, 0.16);
+}
+
+.horizon {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(244, 199, 94, 0.7), transparent);
+}
+
+.ground {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: 5%;
+  height: 14%;
+  /* soft contact shadow under the product instead of a hard ground box */
+  background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0) 70%);
+}
+
+.prod {
+  position: absolute;
+  inset: 2% 0 8% 0;
+  display: grid;
+  place-items: end center;
+}
+
+.prod img {
+  width: auto;
+  height: auto;
+  max-width: 76%;
+  max-height: 88%;
+  object-fit: contain;
+  filter: drop-shadow(0 26px 22px rgba(0, 0, 0, 0.5));
+}
+
+/* ---------- product picker ---------- */
+
+.picker {
+  display: grid;
+  grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  padding: 8px 10px;
+  text-align: left;
+  color: var(--milk);
+  border: 1.5px solid rgba(255, 243, 224, 0.16);
+  border-radius: 16px;
+  background: rgba(255, 243, 224, 0.05);
+  transition:
+    background 0.25s,
+    border-color 0.25s;
+}
+
+.chip img {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.chip span {
+  display: grid;
+  min-width: 0;
+  line-height: 1.3;
+}
+
+.chip b {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+.chip small {
+  font-size: 0.78rem;
+  white-space: nowrap;
+  color: var(--soft);
+}
+
+.chip del {
+  margin-left: 6px;
+  opacity: 0.6;
+}
+
+.on {
+  border-color: var(--sun);
+  background: rgba(244, 199, 94, 0.14);
+}
+
+/* ---------- bottom wave into the green trust strip ---------- */
+
+.wave {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  z-index: 3;
+  width: 100%;
+  height: 56px;
+  display: block;
+}
+
+/* same green as the trust strip below, so the curve flows straight into it */
+.wave path {
+  fill: var(--green);
+}
+
+/* ================= tablet (<= 990px) ================= */
+
+@media (max-width: 990px) {
+  .hero {
+    padding: 48px 0 112px;
+  }
+
+  .in {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .copy {
+    text-align: center;
+  }
+
+  .h1 {
+    justify-items: center;
+  }
+
+  .l1 {
+    font-size: clamp(1.25rem, 3.6vw, 1.8rem);
+  }
+
+  .l2 {
+    font-size: clamp(3.8rem, 14vw, 6.2rem);
+  }
+
+  .l3 {
+    font-size: clamp(2.4rem, 8.6vw, 4rem);
+  }
+
+  .p {
+    margin: 20px auto 26px;
+  }
+
+  .btns,
+  .perks {
+    justify-content: center;
+  }
+
+  .stage {
+    width: min(100%, 460px);
+  }
+
+  .wave {
+    height: 44px;
+  }
+}
+
+/* ================= mobile (<= 480px) ================= */
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 34px 0 96px;
+  }
+
+  .in {
+    gap: 30px;
+  }
+
+  .l1 {
+    font-size: 1.1rem;
+  }
+
+  .l2 {
+    font-size: clamp(3.3rem, 19vw, 4.6rem);
+  }
+
+  .l3 {
+    font-size: clamp(2.1rem, 11.5vw, 3rem);
+  }
+
+  .p {
+    margin: 16px 0 22px;
+    font-size: 0.98rem;
+    line-height: 1.75;
+  }
+
+  .btns {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .btns > * {
+    width: 100%;
+  }
+
+  .perks {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: 24px;
+    font-size: 0.88rem;
+  }
+
+  .perks li {
+    padding: 0;
+  }
+
+  .perks li + li {
+    border-left: 0;
+  }
+
+  .deal {
+    margin-top: 18px;
+    padding: 7px 14px;
+    font-size: 0.86rem;
+    justify-content: center;
+  }
+
+  .stage {
+    width: 100%;
+  }
+
+  .chip {
+    justify-content: center;
+    padding: 8px 6px;
+    text-align: center;
+  }
+
+  .chip img {
+    display: none;
+  }
+
+  .chip b {
+    font-size: 0.92rem;
+  }
+
+  .chip small {
+    font-size: 0.72rem;
+  }
+
+  .chip del {
+    display: none;
+  }
+
+  .wave {
+    height: 34px;
+  }
+}

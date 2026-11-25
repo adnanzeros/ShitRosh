@@ -1,3 +1,4 @@
+// FILE: src/components/ui/Reveal.js
 "use client";
 import { motion, useReducedMotion } from "framer-motion";
 

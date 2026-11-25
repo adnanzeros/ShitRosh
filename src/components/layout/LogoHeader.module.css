@@ -1,0 +1,13 @@
+/* FILE: src/components/layout/LogoHeader.module.css */
+.head { background: linear-gradient(180deg, #FCE3CC 0%, #FDEBDA 100%); text-align: center; }
+.announce { background: var(--choc); color: var(--sun); font-size: .82rem; padding: 7px 12px; }
+.logo { height: clamp(110px, 20vw, 170px); width: auto; margin: 10px auto 4px; filter: drop-shadow(0 8px 14px rgba(75,35,18,.18)); }
+
+@media (max-width: 990px) {
+  .logo { height: clamp(110px, 22vw, 150px); }
+}
+
+@media (max-width: 480px) {
+  .announce { font-size: .72rem; line-height: 1.5; padding: 6px 10px; }
+  .logo { height: 92px; margin: 8px auto 2px; }
+}
