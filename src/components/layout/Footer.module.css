@@ -1,30 +1,298 @@
-/* FILE: src/components/layout/Footer.module.css */
-.f { background: var(--choc); color: var(--cream); padding: 56px 0 100px; }
-.grid { display: grid; gap: 30px; grid-template-columns: 1.4fr 1fr 1fr; }
-.logo { height: 84px; width: auto; background: var(--peach); border-radius: 18px; padding: 4px 14px; margin-bottom: 12px; }
-.f h4 { color: var(--sun); margin-bottom: 8px; font-size: 1.05rem; }
-.f a { display: block; opacity: .88; padding: 3px 0; }
-.nl { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
-.nl input { flex: 1; min-width: 160px; padding: 12px 16px; border-radius: 999px; border: 0; color: var(--choc); }
-.nl button { min-height: 48px; padding: 10px 20px; box-shadow: none; }
-.copy { text-align: center; opacity: .6; font-size: .85rem; margin-top: 36px; }
 
-/* ---------- tablet ---------- */
-@media (max-width: 990px) {
-  .f { padding: 48px 0 100px; }
-  .grid { grid-template-columns: 1fr 1fr; gap: 28px 24px; }
-  .grid > :first-child { grid-column: 1 / -1; }
-  .copy { margin-top: 30px; }
+.f {
+  background: var(--choc);
+  color: var(--cream);
+  padding: 56px 0 100px;
 }
 
-/* ---------- mobile ---------- */
+.grid {
+  display: grid;
+  gap: 36px;
+  grid-template-columns: 1.4fr 1fr 1.2fr;
+}
+
+.logo {
+  height: 84px;
+  width: auto;
+  background: var(--peach);
+  border-radius: 18px;
+  padding: 4px 14px;
+  margin-bottom: 12px;
+}
+
+.brand > p {
+  max-width: 350px;
+  line-height: 1.8;
+  opacity: .85;
+}
+
+.f h4 {
+  color: var(--sun);
+  margin-bottom: 12px;
+  font-size: 1.05rem;
+}
+
+/* Navigation */
+.links a {
+  display: block;
+  color: var(--cream);
+  opacity: .88;
+  padding: 4px 0;
+  text-decoration: none;
+}
+
+.links a:hover {
+  color: var(--sun);
+  opacity: 1;
+}
+
+/* Contact Cards */
+.contactGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 22px;
+  max-width: 580px;
+}
+
+.waContact,
+.callContact {
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  padding: 15px 12px !important;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, .12);
+  background: rgba(255, 255, 255, .055);
+  color: var(--cream);
+  text-decoration: none;
+  transition: .25s ease;
+}
+
+.waContact:hover {
+  background: rgba(37, 211, 102, .12);
+  border-color: #25d366;
+  transform: translateY(-3px);
+  opacity: 1;
+}
+
+.callContact:hover {
+  background: rgba(255, 255, 255, .1);
+  border-color: var(--sun);
+  transform: translateY(-3px);
+  opacity: 1;
+}
+
+/* Circular Icons */
+.waIcon,
+.callIcon {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: transform .25s ease;
+}
+
+.waIcon {
+  background: #25d366;
+  color: #fff;
+  font-size: 26px;
+}
+
+.callIcon {
+  background: var(--sun);
+  color: var(--choc);
+  font-size: 18px;
+}
+
+.waContact:hover .waIcon,
+.callContact:hover .callIcon {
+  transform: scale(1.08);
+}
+
+/* Contact Text */
+.contactText {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.contactText strong {
+  color: var(--cream);
+  font-size: .86rem;
+  line-height: 1.5;
+}
+
+.contactText small {
+  color: var(--cream);
+  opacity: .72;
+  font-size: .70rem;
+  line-height: 1.5;
+}
+
+.waContact .contactText b {
+  color: #25d366;
+  font-size: .76rem;
+}
+
+.callContact .contactText b {
+  color: var(--sun);
+  font-size: .76rem;
+}
+
+.callContact .contactText em {
+  color: var(--cream);
+  opacity: .8;
+  font-size: .76rem;
+  font-style: normal;
+}
+
+/* Newsletter */
+.newsletter > p {
+  opacity: .75;
+  font-size: .9rem;
+  line-height: 1.7;
+}
+
+.nl {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.nl input {
+  flex: 1;
+  min-width: 160px;
+  padding: 12px 16px;
+  border-radius: 999px;
+  border: 0;
+  outline: none;
+  color: var(--choc);
+  background: var(--cream);
+}
+
+.nl input:focus {
+  box-shadow: 0 0 0 2px var(--sun);
+}
+
+.nl button {
+  min-height: 48px;
+  padding: 10px 20px;
+  box-shadow: none;
+}
+
+.nl button:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+/* Copyright */
+.copy {
+  text-align: center;
+  opacity: .6;
+  font-size: .85rem;
+  margin-top: 36px;
+}
+
+/* Tablet */
+@media (max-width: 990px) {
+  .f {
+    padding: 48px 0 100px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 24px;
+  }
+
+  .grid > :first-child {
+    grid-column: 1 / -1;
+  }
+
+  .copy {
+    margin-top: 30px;
+  }
+}
+
+/* Mobile */
 @media (max-width: 480px) {
-  .f { padding: 38px 0 96px; }
-  .grid { grid-template-columns: 1fr; gap: 24px; }
-  .logo { height: 68px; border-radius: 14px; }
-  .f a { padding: 6px 0; }
-  .nl { flex-direction: column; }
-  .nl input { min-width: 0; width: 100%; flex: none; font-size: 16px; }
-  .nl button { width: 100%; }
-  .copy { font-size: .78rem; margin-top: 26px; }
+  .f {
+    padding: 38px 0 96px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .logo {
+    height: 68px;
+    border-radius: 14px;
+  }
+
+  .contactGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .waContact,
+  .callContact {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 13px 10px !important;
+    gap: 10px;
+    border-radius: 14px;
+  }
+
+  .waIcon,
+  .callIcon {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+  }
+
+  .waIcon {
+    font-size: 25px;
+  }
+
+  .contactText strong {
+    font-size: .73rem;
+  }
+
+  .contactText small {
+    font-size: .63rem;
+  }
+
+  .waContact .contactText b,
+  .callContact .contactText b,
+  .callContact .contactText em {
+    font-size: .65rem;
+    overflow-wrap: anywhere;
+  }
+
+  .nl {
+    flex-direction: column;
+  }
+
+  .nl input {
+    min-width: 0;
+    width: 100%;
+    flex: none;
+    font-size: 16px;
+  }
+
+  .nl button {
+    width: 100%;
+  }
+
+  .copy {
+    font-size: .78rem;
+    margin-top: 26px;
+  }
 }
