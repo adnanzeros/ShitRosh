@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react';
 import { Hind_Siliguri, Baloo_Da_2, DM_Sans } from 'next/font/google';
 import { Toaster } from 'sonner';
 import './globals.css';
@@ -46,6 +47,7 @@ export default function RootLayout({ children }) {
       <body suppressHydrationWarning>
         {children}
         <Toaster position="top-center" richColors />
+        <Analytics />
       </body>
     </html>
   );
