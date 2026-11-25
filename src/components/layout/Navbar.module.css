@@ -1,0 +1,14 @@
+.bar { position: sticky; top: 0; z-index: 50; background: rgba(255,249,239,.9); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(84,43,29,.1); }
+.in { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.logo { height: 46px; width: auto; }
+.links { display: flex; gap: 24px; font-weight: 500; }
+.links a:hover { color: var(--orange); }
+.cta { padding: 10px 20px; min-height: 42px; }
+.menuBtn { display: none; }
+@media (max-width: 860px) {
+  .links { position: absolute; top: 64px; left: 0; right: 0; flex-direction: column; gap: 0; background: var(--cream); padding: 8px 16px 16px; box-shadow: var(--shadow); display: none; }
+  .links.open { display: flex; }
+  .links a { padding: 12px 0; border-bottom: 1px solid var(--beige); }
+  .menuBtn { display: block; padding: 8px; }
+  .cta { display: none; }
+}

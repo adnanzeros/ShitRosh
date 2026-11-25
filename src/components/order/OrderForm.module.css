@@ -1,0 +1,29 @@
+.wrap { background: linear-gradient(180deg, var(--beige), var(--cream)); }
+.card { background: #fff; border-radius: 28px; box-shadow: var(--shadow); padding: 22px; max-width: 860px; margin: 28px auto 0; }
+@media (min-width: 700px) { .card { padding: 36px; } }
+.h { font-size: 1.1rem; font-weight: 700; margin: 22px 0 10px; border-left: 4px solid var(--orange); padding-left: 10px; }
+.grid2 { display: grid; gap: 14px; grid-template-columns: 1fr; }
+@media (min-width: 640px) { .grid2 { grid-template-columns: 1fr 1fr; } }
+.field label { display: block; font-size: .9rem; font-weight: 600; margin-bottom: 4px; }
+.field input, .field select, .field textarea { width: 100%; padding: 12px 14px; border-radius: 12px; border: 1.5px solid #e6d8c3; background: var(--cream); outline: none; }
+.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(201,107,37,.18); }
+.err { color: #b3261e; font-size: .82rem; margin-top: 3px; }
+.full { grid-column: 1 / -1; }
+.line { display: grid; gap: 8px; grid-template-columns: 1fr 1fr; padding: 12px; border-radius: 14px; background: var(--cream); margin-bottom: 10px; }
+.pick { grid-column: 1 / -1; }
+.lineEnd { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.rm { color: #b3261e; padding: 6px; }
+.add { color: var(--orange); font-weight: 600; display: inline-flex; gap: 6px; align-items: center; padding: 6px 0; }
+.pay { display: grid; gap: 10px; }
+@media (min-width: 640px) { .pay { grid-template-columns: repeat(3, 1fr); } }
+.payOpt { border: 2px solid #e6d8c3; border-radius: 14px; padding: 12px; cursor: pointer; display: flex; gap: 8px; align-items: center; }
+.on { border-color: var(--orange); background: #FFF1DC; }
+.payOpt input { accent-color: var(--orange); }
+.info { background: #FFF1DC; border-radius: 12px; padding: 12px 14px; margin-top: 10px; font-size: .92rem; }
+.sum { background: var(--brown); color: var(--cream); border-radius: 18px; padding: 18px; margin: 22px 0 16px; }
+.sum div { display: flex; justify-content: space-between; padding: 3px 0; }
+.sum .tot { border-top: 1px dashed rgba(255,255,255,.3); margin-top: 8px; padding-top: 10px; font-size: 1.25rem; font-weight: 700; color: var(--gold); }
+.submit { width: 100%; font-size: 1.1rem; }
+.success { text-align: center; padding: 20px 0; }
+.success svg { color: var(--green); }
+.oid { display: inline-block; margin: 12px 0; padding: 10px 22px; border-radius: 999px; background: var(--beige); font-family: var(--font-en); font-weight: 700; letter-spacing: .05em; font-size: 1.2rem; }

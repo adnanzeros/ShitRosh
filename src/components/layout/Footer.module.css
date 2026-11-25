@@ -1,0 +1,9 @@
+.f { background: var(--brown); color: var(--cream); padding: 48px 0 24px; }
+.grid { display: grid; gap: 28px; grid-template-columns: 1fr; }
+@media (min-width: 760px) { .grid { grid-template-columns: 1.4fr 1fr 1fr; } }
+.logo { height: 60px; background: var(--cream); border-radius: 14px; padding: 6px 12px; margin-bottom: 12px; }
+.f h4 { color: var(--gold); margin-bottom: 8px; }
+.f a { display: block; opacity: .85; padding: 2px 0; }
+.nl { display: flex; gap: 8px; margin-top: 8px; }
+.nl input { flex: 1; min-width: 0; padding: 12px 16px; border-radius: 999px; border: 0; }
+.copy { text-align: center; opacity: .6; font-size: .85rem; margin-top: 32px; }
