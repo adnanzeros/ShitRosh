@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { toast } from 'sonner';
-import { FaWhatsapp, FaPhoneAlt } from 'react-icons/fa';
+import { FaWhatsapp, FaPhoneAlt, FaFacebookF } from 'react-icons/fa';
 import { nav } from '@/data/content';
 import s from './Footer.module.css';
 
@@ -12,6 +12,9 @@ export default function Footer() {
 
   const whatsappNumber = '8801333647556';
   const callNumber = '+8801321382315';
+
+  // নিজের Facebook Page URL বসাবে
+  const facebookUrl = 'https://www.facebook.com/shitrosh';
 
   const whatsappMessage = encodeURIComponent(
     'আসসালামু আলাইকুম! শীতরসের পণ্য সম্পর্কে জানতে এবং অর্ডার করতে চাই।',
@@ -93,6 +96,22 @@ export default function Footer() {
               </span>
             </a>
           </div>
+
+          {/* Follow Us */}
+          <div className={s.followUs}>
+            <span>Follow Us</span>
+
+            <a
+              href={facebookUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow us on Facebook"
+              title="Facebook Page"
+              className={s.facebookIcon}
+            >
+              <FaFacebookF />
+            </a>
+          </div>
         </div>
 
         {/* Navigation */}
@@ -130,6 +149,7 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* Copyright */}
       <p className={s.copy}>
         © {new Date().getFullYear()} শীতরস। সর্বস্বত্ব সংরক্ষিত।
       </p>

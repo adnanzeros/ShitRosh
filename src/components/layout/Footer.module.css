@@ -151,6 +151,40 @@
   font-style: normal;
 }
 
+/* Follow Us */
+.followUs {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.followUs span {
+  color: var(--cream);
+  font-size: .9rem;
+  font-weight: 600;
+}
+
+.facebookIcon {
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #1877f2;
+  color: #fff;
+  font-size: 20px;
+  text-decoration: none;
+  transition: .25s ease;
+}
+
+.facebookIcon:hover {
+  background: #0866ff;
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 5px 15px rgba(24, 119, 242, .3);
+}
+
 /* Newsletter */
 .newsletter > p {
   opacity: .75;
@@ -274,6 +308,20 @@
   .callContact .contactText em {
     font-size: .65rem;
     overflow-wrap: anywhere;
+  }
+
+  .followUs {
+    margin-top: 16px;
+  }
+
+  .followUs span {
+    font-size: .85rem;
+  }
+
+  .facebookIcon {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
   }
 
   .nl {
